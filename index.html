@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <section>
+      <button v-for="btn of btns" @click="scroll(btn)">{{ btn }}</button>
+    </section>
+    <section class="gallery">
+      <!-- Image 1 -->
+      <div class="img-container" v-for="imageBox in imageBoxs">
+        <img :src="imageBox.imageIndex" :alt="imageBox.imageAlt" @click="isClickShow(imageBox.imageAlt)" />
+      </div>
+    </section>
+    
+    <!-- modal -->
+    <div class="modal_new " :class="addOpen" @click="closeModal">
+      <img :src="changeImage" alt="" class="full-img" />
+    </div>
+
+    <div id="student"><p>student</p></div>
+    
+    <div id="book"><p>book</p></div>
+    <div id="color"><p>Colors</p></div>
+    <div class="row box_show_change">
+      <p class="text_color">Text show color: </p>
+      <div class="box_show_color" :style="changeColorShow"></div>
+    </div>
+    <div class="box_change">
+      <div class="box_show_text">
+        <p class="font-weight-bold">Chuyển đổi ngẫu nhiên</p>
+        <button class="btn_change_random btn btn-success" @click="randomColor">Chuyển đổi</button>
+      </div>
+    </div>
+    <div class="modal_new" :class="addOpen" @click="closeModal">
+      <img :src="changeImage" alt="" class="full-img" />
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="./app.js"></script>
+</body>
+
+</html>
